@@ -1,0 +1,13 @@
+<div class="products-container">
+  <p class="products-header">Products</p>
+  <ul class="products">
+    <li *ngFor="let product of productService.getProducts() | async">
+      <b>{{ product.name }}</b>
+      <div class="macros">
+        <span>Proteins: {{ product.proteins }}g</span>
+        <span>Carbs: {{ product.carbohydrates }}g</span>
+        <span>Fats: {{ product.fats }}g</span>
+      </div>
+    </li>
+  </ul>
+</div>

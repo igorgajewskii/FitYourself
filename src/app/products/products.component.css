@@ -1,0 +1,35 @@
+.products-container {
+  width: 40%;
+  margin: auto;
+}
+
+.products-header {
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.products {
+  list-style-type: none;
+  padding: 0em;
+}
+
+.products li {
+  cursor: pointer;
+  background-color: rgb(223, 222, 222);
+  margin: 0.5em;
+  padding: 1em;
+}
+
+.products li > b {
+    font-size: 20px;
+}
+
+.products li .macros span {
+    margin: 0.5em 1em 0.5em 0em;
+}
+
+.products li:hover {
+  background-color: rgb(139, 139, 139);
+}
