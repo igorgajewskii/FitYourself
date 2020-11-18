@@ -4,17 +4,16 @@ import { Product } from 'src/app/shared/models/product.model';
 import { PRODUCTS } from '../mocks/PRODUCTS';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
-
-  constructor() { }
+  constructor() {}
 
   getProducts(): Observable<Product[]> {
-    return of(PRODUCTS)
+    return of(PRODUCTS);
   }
 
-  getProduct(id: number): Observable<Product> {
-    return of(PRODUCTS.filter(p => p.id === id)[0])
+  getProduct(id: number): Observable<Product | undefined> {
+    return of(PRODUCTS.find((p) => p.id === id));
   }
 }

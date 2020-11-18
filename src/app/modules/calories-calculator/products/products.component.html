@@ -1,0 +1,25 @@
+<div class="products-container">
+  <p class="products-header">Products</p>
+  <ul class="product-list">
+    <li
+      class="product-item"
+      *ngFor="let product of productService.getProducts() | async"
+      (click)="onProductSelected(product.id)"
+      routerLink="/products/{{ product.id }}"
+    >
+      <div class="product-information">
+        <div>
+          <b class="product-name">{{ product.name }}</b>
+          <i>/{{ product.defaultPortion }}g</i>
+        </div>
+        <div class="macros">
+          <span>Proteins: {{ product.proteins | portion: product.defaultPortion | number: '1.1-1' }}g</span>
+          <span>Carbs: {{ product.carbohydrates | portion: product.defaultPortion | number: '1.1-1' }}g</span>
+          <span>Fats: {{ product.fats | portion: product.defaultPortion | number: '1.1-1' }}g</span>
+          <span>Calories: {{ product.calories | portion: product.defaultPortion | number: '1.0-0' }}kcal</span>
+        </div>
+      </div>
+      <div class="material-icons md-48 product_add" (click)="onAddProduct(product.id, $event)">add_box</div>
+    </li>
+  </ul>
+</div>

@@ -1,8 +1,9 @@
 export class Product {
-    id: number;
-    name: string;
-    proteins: number;
-    carbohydrates: number;
-    fats: number;
-    calories: number;
+  id: number;
+  name: string;
+  proteins: number;
+  carbohydrates: number;
+  fats: number;
+  calories: number;
+  defaultPortion: number;
 }
