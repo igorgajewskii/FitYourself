@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Product } from 'src/app/shared/product.model';
+import { Product } from 'src/app/shared/models/product.model';
 import { PRODUCTS } from '../mocks/PRODUCTS';
 
 @Injectable({
@@ -12,5 +12,9 @@ export class ProductService {
 
   getProducts(): Observable<Product[]> {
     return of(PRODUCTS)
+  }
+
+  getProduct(id: number): Observable<Product> {
+    return of(PRODUCTS.filter(p => p.id === id)[0])
   }
 }

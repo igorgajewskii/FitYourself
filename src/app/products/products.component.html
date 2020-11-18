@@ -1,13 +1,24 @@
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
 <div class="products-container">
   <p class="products-header">Products</p>
-  <ul class="products">
-    <li *ngFor="let product of productService.getProducts() | async">
-      <b>{{ product.name }}</b>
-      <div class="macros">
-        <span>Proteins: {{ product.proteins }}g</span>
-        <span>Carbs: {{ product.carbohydrates }}g</span>
-        <span>Fats: {{ product.fats }}g</span>
+  <ul class="product-list">
+    <li
+      class="product-item"
+      *ngFor="let product of productService.getProducts() | async"
+    >
+      <div class="product-information">
+        <b class="product-name">{{ product.name }}</b>
+        <div class="macros">
+          <span>Proteins: {{ product.proteins }}g</span>
+          <span>Carbs: {{ product.carbohydrates }}g</span>
+          <span>Fats: {{ product.fats }}g</span>
+          <span>Calories: {{ product.calories }}kcal</span>
+        </div>
       </div>
+      <div class="material-icons product-add">add_box</div>
     </li>
   </ul>
 </div>
