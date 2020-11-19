@@ -1,3 +1,21 @@
+@import '../../../../styles.scss';
+
 .details-container {
-  display: flex;
+  max-width: 32%;
+  margin: auto;
+  background-color: $primaryBlue;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.details-header {
+  font-weight: bold;
+  font-size: 35px;
+  text-align: center;
+  margin: 10px 0px;
+}
+
+.details-portion {
+  background-color: $primaryGrey;
+  padding: 5px;
 }

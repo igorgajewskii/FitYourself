@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ProductService } from 'src/app/core/services/product.service';
 import { Product } from 'src/app/shared/models/product.model';
-import { delay, switchMap } from 'rxjs/operators';
+import { delay, switchMap, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductDetailsComponent implements OnInit {
   public product$: Observable<Product | undefined>;
+  public portion: number;
 
   constructor(public productService: ProductService, public route: ActivatedRoute) {}
 
@@ -20,7 +21,11 @@ export class ProductDetailsComponent implements OnInit {
       delay(500),
       switchMap((params: ParamMap) => {
         let id = params.get('id');
-        return this.productService.getProduct(+id!);
+        return this.productService.getProduct(+id!).pipe(
+          tap((product) => {
+            this.portion = product.defaultPortion;
+          })
+        );
       })
     );
   }

@@ -1,8 +1,11 @@
 @import '../../../../styles.scss';
 
 .products-container {
-  width: 80%;
+  max-width: 32%;
   margin: auto;
+  background-color: $primaryBlue;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .products-header {
@@ -23,13 +26,13 @@
   justify-content: space-between;
   align-items: stretch;
   cursor: pointer;
-  background-color: $mainGray;
+  background-color: $primaryGrey;
   margin: 0.5em;
   padding: 1em;
   outline: none;
 
   &:hover {
-    background-color: rgb(139, 139, 139);
+    background-color: $secondaryGrey;
   }
 }
 
