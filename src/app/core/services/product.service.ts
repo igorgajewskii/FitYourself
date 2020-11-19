@@ -13,7 +13,7 @@ export class ProductService {
     return of(PRODUCTS);
   }
 
-  getProduct(id: number): Observable<Product | undefined> {
-    return of(PRODUCTS.find((p) => p.id === id));
+  getProduct(id: number): Observable<Product> {
+    return of(PRODUCTS.find((p) => p.id === id)!);
   }
 }

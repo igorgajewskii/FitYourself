@@ -1,3 +1,5 @@
+@import '../../../../styles.scss';
+
 .products-container {
   width: 80%;
   margin: auto;
@@ -21,9 +23,14 @@
   justify-content: space-between;
   align-items: stretch;
   cursor: pointer;
-  background-color: rgb(223, 222, 222);
+  background-color: $mainGray;
   margin: 0.5em;
   padding: 1em;
+  outline: none;
+
+  &:hover {
+    background-color: rgb(139, 139, 139);
+  }
 }
 
 .product-information {
@@ -36,11 +43,8 @@
 }
 
 .macros span {
+  display: inline-block;
   margin: 0.5em 1em 0.5em 0em;
-}
-
-.product-item:hover {
-  background-color: rgb(139, 139, 139);
 }
 
 .product-add {

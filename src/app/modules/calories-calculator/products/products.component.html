@@ -1,9 +1,9 @@
 <div class="products-container">
-  <p class="products-header">Products</p>
-  <ul class="product-list">
+  <div class="products-header">Products</div>
+  <ul class="product-list" *ngIf="products$ | async as products; else loading">
     <li
       class="product-item"
-      *ngFor="let product of productService.getProducts() | async"
+      *ngFor="let product of products"
       (click)="onProductSelected(product.id)"
       routerLink="/products/{{ product.id }}"
     >
@@ -13,9 +13,9 @@
           <i>/{{ product.defaultPortion }}g</i>
         </div>
         <div class="macros">
-          <span>Proteins: {{ product.proteins | portion: product.defaultPortion | number: '1.1-1' }}g</span>
-          <span>Carbs: {{ product.carbohydrates | portion: product.defaultPortion | number: '1.1-1' }}g</span>
-          <span>Fats: {{ product.fats | portion: product.defaultPortion | number: '1.1-1' }}g</span>
+          <span>Proteins: {{ product.proteins | portion: product.defaultPortion | number: '1.1-1' }}g </span>
+          <span>Carbs: {{ product.carbohydrates | portion: product.defaultPortion | number: '1.1-1' }}g </span>
+          <span>Fats: {{ product.fats | portion: product.defaultPortion | number: '1.1-1' }}g </span>
           <span>Calories: {{ product.calories | portion: product.defaultPortion | number: '1.0-0' }}kcal</span>
         </div>
       </div>
@@ -23,3 +23,7 @@
     </li>
   </ul>
 </div>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>
